@@ -1,5 +1,5 @@
 # HScan
-本脚本旨在为安全应急响应人员对Linux主机排查时提供便利，定制化在主机中执行命令
+本脚本旨在为安全应急响应人员对Linux主机排查，日志分析等提供便利，定制化在主机中执行命令
 #### 获取脚本
 
 git clone https://github.com/HZzz2/HScan.git
