@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-import sys,linecache
+import sys,linecache,time
 import subprocess
 import shlex
 
@@ -24,6 +24,7 @@ else:
 
 line = linecache.getlines('log.cfg')
 with open(lao,'w') as f:
+    f.write(time.asctime( time.localtime(time.time()) ))
     for i in line:
         if i.startswith('#') or i=='\n' or i=='\r\n':continue
         one_line = i.split('#')
