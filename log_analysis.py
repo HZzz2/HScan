@@ -24,7 +24,7 @@ else:
 
 line = linecache.getlines('log.cfg')
 with open(lao,'w') as f:
-    f.write(time.asctime( time.localtime(time.time()) )+'\n')
+    f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n')
     for i in line:
         if i.startswith('#') or i=='\n' or i=='\r\n':continue
         one_line = i.split('#')
