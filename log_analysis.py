@@ -1,0 +1,35 @@
+import sys,linecache
+import subprocess
+import shlex
+
+def cmd_exec(cmd):
+    last = ''  #命令执行后返回的字符串
+    if '|' not in cmd:
+        return subprocess.Popen(cmd if '*' in cmd else shlex.split(cmd),stdout=subprocess.PIPE,shell=True if '*' in cmd else False).stdout.read().decode()
+    cmd_len = len(cmd.split('|'))
+    for j,i in enumerate(cmd.split('|')):
+        if j == 0:
+            last = subprocess.Popen(i if '*' in i else shlex.split(i),stdout=subprocess.PIPE,shell=True if '*' in i else False)
+        elif j>0 and j < cmd_len-1:
+            last = subprocess.Popen(i if '*' in i else shlex.split(i),stdin=last.stdout,stdout=subprocess.PIPE,shell=True if '*' in i else False)
+        elif j == cmd_len-1:
+            last = subprocess.Popen(i if '*' in i else shlex.split(i),stdin=last.stdout,stdout=subprocess.PIPE,shell=True if '*' in i else False).stdout.read().decode()
+    return last
+
+if len(sys.argv) > 1:
+    lao = sys.argv[1]
+else:
+    lao = 'out_log_analysis.txt'
+
+line = linecache.getlines('log.cfg')
+with open(lao,'w') as f:
+    for i in line:
+        if i.startswith('#') or i=='\n' or i=='\r\n':continue
+        one_line = i.split('#')
+        cli,des = one_line[0],one_line[1]
+        if cli.startswith('>'):
+            cmd_exec(cli)
+            print('执行却不写入的命令',cli)
+            continue
+        f.write(f'{des.strip()}   命令:{cli}\n')
+        f.write(cmd_exec(cli))
