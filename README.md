@@ -1,5 +1,5 @@
 # HScan
-本脚本旨在为安全应急响应人员对Linux主机排查时提供便利，定制化在主机中执行命令
+本脚本旨在为安全应急响应人员对Linux主机排查，日志分析等提供便利，定制化在主机中执行命令
 #### 获取脚本
 
 git clone https://github.com/HZzz2/HScan.git
@@ -30,7 +30,7 @@ vim log.cfg
 
 ![](https://secure2.wostatic.cn/static/jFDBx7hbcnMCx3hP8eDhhx/image.png)
 
-
+可以在定时任务中设置每天执行此脚本。
 
 
 
