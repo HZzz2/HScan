@@ -29,7 +29,6 @@ with open(lao,'w') as f:
         cli,des = one_line[0],one_line[1]
         if cli.startswith('>'):
             cmd_exec(cli)
-            print('执行却不写入的命令',cli)
             continue
         f.write(f'{des.strip()}   命令:{cli}\n')
         f.write(cmd_exec(cli))
