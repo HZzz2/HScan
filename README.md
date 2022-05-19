@@ -3,6 +3,7 @@
 #### 获取脚本
 
 git clone https://github.com/HZzz2/HScan.git
+
 cd HScan
 
 #### 使用脚本
@@ -29,7 +30,7 @@ vim log.cfg
 
 ![](https://secure2.wostatic.cn/static/jFDBx7hbcnMCx3hP8eDhhx/image.png)
 
-可以在定时任务中执行此脚本。
+可以在定时任务中设置每天执行此脚本。
 
 
 
