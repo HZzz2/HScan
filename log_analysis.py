@@ -34,5 +34,4 @@ with open(lao,'w') as f:
             continue
         f.write(f'{des.strip()}   命令:{cli}\n')
         f.write(cmd_exec(cli))
-
 print(f'执行完成输入cat {lao}进行查看')
