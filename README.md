@@ -26,9 +26,8 @@ cat out_log_analysis.txt
 
 vim log.cfg
 
-![image](https://user-images.githubusercontent.com/22775890/169294093-dd39e336-c537-4e3d-a96d-61d5b56656d3.png)
+![image](https://user-images.githubusercontent.com/22775890/169656681-b082cd68-3508-4521-bcb5-8d8e0feab864.png)
 
-![](https://secure2.wostatic.cn/static/jFDBx7hbcnMCx3hP8eDhhx/image.png)
 
 可以在定时任务中设置每天执行此脚本。
 
