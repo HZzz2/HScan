@@ -1,0 +1,28 @@
+2022-05-21 19:25:16
+uid为0的用户   命令:awk -F: '$3==0 {print $1}' /etc/passwd 
+root
+查看访问最多的URI   命令:cat /var/log/httpd/access_log* |cut -f 7 -d ' '|sort|uniq -c|sort -nr|head -10 
+ip.fm/?ip=24.23.3.4   命令:curl https:
+查看本机处于监听的服务   命令:netstat -anutp |grep LISTEN        
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      470/systemd-resolve 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      653/sshd: /usr/sbin 
+查看已经建立连接的会话。   命令:netstat -anutp |grep ESTABLISHED   
+tcp        0      0 172.31.133.13:22        111.22.245.31:35970     ESTABLISHED 2959833/sshd: root@ 
+tcp        0      0 172.31.133.13:59850     100.100.30.25:80        ESTABLISHED 759/AliYunDun       
+tcp        0      0 172.31.133.13:22        111.22.245.31:35972     ESTABLISHED 2959899/sshd: root@ 
+tcp        0      0 172.31.133.13:22        111.22.245.31:35974     ESTABLISHED 2959921/sshd: root@ 
+tcp        0     68 172.31.133.13:22        111.22.245.31:35971     ESTABLISHED 2959835/sshd: root@ 
+tcp        0      0 172.31.133.13:45208     100.100.27.15:3128      ESTABLISHED 580/CmsGoAgent-Work 
+查看计划任务   命令:cat /etc/crontab | grep -v "#"   
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+00 6    * * *   root    apt update && apt full-upgrade -y
+30 11   * * *   root    apt update && apt full-upgrade -y
+30 17   * * *   root    apt update && apt full-upgrade -y
+30 17   * * *   root    updatedb
