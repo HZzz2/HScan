@@ -29,8 +29,11 @@ vim log.cfg
 ![image](https://user-images.githubusercontent.com/22775890/169656681-b082cd68-3508-4521-bcb5-8d8e0feab864.png)
 
 
-可以在定时任务中设置每天执行此脚本。
+可以在定时任务中设置每天八点执行此脚本。
 
+vim /etc/crontab
+
+00 8    * * *   root    python3 /you_path/HScan/log_analysis.py
 
 
 
