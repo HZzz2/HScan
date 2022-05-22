@@ -27,6 +27,7 @@ with open(lao,'w') as f:
     f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n')
     for i in line:
         if i.startswith('#') or i=='\n' or i=='\r\n':continue
+        print('=====',i)
         one_line = i.split('//')
         cli,des = one_line[0],one_line[1]
         if cli.startswith('>'):
