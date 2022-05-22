@@ -31,7 +31,7 @@ with open(lao,'w') as f:
         cli,des = one_line[0],one_line[1]
         if cli.startswith('>'):
             cmd_exec(cli[1:])
-            print(cli[1:])
+            print('>>>',cli[1:])
             continue
         f.write(f'{des.strip()}   命令:{cli}\n')
         print('+++',cli)
