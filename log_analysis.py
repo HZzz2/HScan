@@ -27,7 +27,6 @@ with open(lao,'w') as f:
     f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())+'\n')
     for i in line:
         if i.startswith('#') or i=='\n' or i=='\r\n':continue
-        print('=====',i)
         one_line = i.split('//')
         cli,des = one_line[0],one_line[1]
         if cli.startswith('>'):
@@ -35,6 +34,6 @@ with open(lao,'w') as f:
             print(cli[1:])
             continue
         f.write(f'{des.strip()}   命令:{cli}\n')
-        print(cli)
+        print('+++',cli)
         f.write(cmd_exec(cli))
 print(f'执行完成输入cat {lao}进行查看')
